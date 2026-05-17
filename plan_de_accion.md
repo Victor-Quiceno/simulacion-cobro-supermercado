@@ -1,18 +1,5 @@
-# Plan de Acción Actualizado: Simulación de Cobro en Supermercado
-
-Este documento ha sido unificado con el plan original del equipo (`Plan.md`) y las decisiones recientes para implementar la simulación del proceso de cobro, utilizando concurrencia en Java con Spring Boot y H2.
-
-## Validación del Trabajo Actual (Integrante 1)
-He revisado el código implementado hasta ahora por el **Integrante 1** en la carpeta `src/main/java` y puedo confirmar que **cumple perfectamente con los requerimientos**:
-- La configuración de `application.properties` para H2 en memoria y JPA está correcta.
-- La entidad `HistorialSimulacion` fue creada con todos los atributos necesarios (fecha, cantidad de clientes, tiempo total) y usa el ciclo de vida de JPA (`@PrePersist`) correctamente para asignar la fecha.
-- La interfaz `HistorialSimulacionRepository` hereda correctamente de `JpaRepository`.
-- Los DTOs (`ClienteDTO` y `ProductoDTO`) están bien estructurados e incluyen las anotaciones de validación (`@Valid`, `@NotBlank`, `@Positive`, `@Min`, etc.) tal como se planeó.
-
-**Estado de la fase 1:** ¡Aprobado y listo! ✅
-
 ## Decisiones Técnicas Confirmadas
-De acuerdo con las respuestas obtenidas, el sistema operará bajo estas reglas:
+El sistema operará bajo estas reglas:
 1. **Persistencia (H2):** Se guardará el historial global de cada ejecución de simulación en la base de datos a través de la entidad `HistorialSimulacion`.
 2. **Visualización:** El seguimiento paso a paso de cada cajera (qué producto está cobrando y su costo) se registrará mediante **logs impresos en la consola** de Spring Boot. No hace falta responder un JSON gigante con todos los detalles.
 3. **Escala de Tiempo:** Se utilizará el tiempo real. Si un producto dice que tarda 3 segundos en procesarse, el hilo de la cajera se suspenderá exactamente 3 segundos (`Thread.sleep(3000)`). Esto permitirá ver la concurrencia de forma natural.
