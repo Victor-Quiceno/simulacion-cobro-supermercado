@@ -13,7 +13,7 @@ El sistema permite procesar multiples clientes de forma simultanea, donde cada "
 
 ## Como Inicializar el Proyecto
 1. Clona o descarga el repositorio en tu maquina local.
-2. Abre el proyecto en tu IDE de preferencia (IntelliJ IDEA, Eclipse, VS Code).
+2. Abre el proyecto en tu IDE de preferencia.
 3. Ejecuta la clase principal `SimulacionCobroSupermercadoApplication.java` o utiliza el siguiente comando de Maven en la terminal desde la raiz del proyecto:
    `mvn spring-boot:run`
 4. El servidor se iniciara en el puerto 8080.
